@@ -1,0 +1,12 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using UnityEngine;
+
+public class ItemDefinitionBase : ScriptableObject
+{
+    public string itemName;
+    public Sprite icon;
+    public string description;
+}
