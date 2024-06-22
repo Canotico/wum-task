@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: SmallBag
   m_EditorClassIdentifier: 
   itemName: Small Bag
+  icon: {fileID: 21300000, guid: a9014176c336ce74e98c6cb0d6915964, type: 3}
   description: 
   size: 2
