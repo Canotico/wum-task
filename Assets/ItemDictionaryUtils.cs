@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ItemDictionaryUtils : MonoBehaviour
 {
+    /// <summary>
+    /// Update the ItemDefinitionDictionary so that it includes all existing ItemDefinitions (and potential name-changes)
+    /// </summary>
     [MenuItem("Inventory/Update Dictionary")]
     public static void UpdateDictionary()
     {

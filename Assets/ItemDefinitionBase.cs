@@ -1,9 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 
+/// <summary>
+/// Represents the very basic building blocks of what an Item is
+/// </summary>
 public class ItemDefinitionBase : ScriptableObject
 {
     public string itemName;

@@ -9,15 +9,18 @@ public class Inventory : MonoBehaviour
     private const string DATA_FILE = "/InventoryData.json";
 
     private static Inventory instance;
-
     public static Inventory Instance{ get{ return instance; }}
 
+    /// <summary>
+    /// The inventory will always have this container by default
+    /// </summary>
     public ContainerDefinition defaultContainer;
     public ItemDefinitionDictionary itemDictionary;
 
     private InventoryData inventoryData;
     private ContainerInstance defaultContainerInst;
 
+    //Variable used only to test adding items to the default container for save/load purposes
     public StackableDefinition dummyItem;
 
     private string filePath;
@@ -29,6 +32,7 @@ public class Inventory : MonoBehaviour
 
         filePath = Application.persistentDataPath + DATA_FILE;
 
+        //If failed to load, build the default inventory
         if (!Load())
         {
             CreateDefaultInventory();
@@ -50,9 +54,6 @@ public class Inventory : MonoBehaviour
 
     public void Save()
     {
-        /*File.WriteAllText(filePath, JsonUtility.ToJson(inventoryData));
-        Debug.Log("Saved Inventory data at: " + filePath);*/
-
         using (FileStream stream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
         {
             using (StreamWriter writer = new StreamWriter(stream))
@@ -67,18 +68,6 @@ public class Inventory : MonoBehaviour
     
     public bool Load()
     {
-        /*if (!File.Exists(filePath))
-        {
-            Debug.Log("Failed to load Inventory Data. File not found.");
-            return false;
-        }
-
-        inventoryData = JsonUtility.FromJson<InventoryData>(File.ReadAllText(filePath));
-        defaultContainerInst = inventoryData.defaultContainer;
-        Debug.Log("Loaded Inventory data successfully");
-
-        return true;*/
-
         using (FileStream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
         {
             using (StreamReader reader = new StreamReader(stream))
